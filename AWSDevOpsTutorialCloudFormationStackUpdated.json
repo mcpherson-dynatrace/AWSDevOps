@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "Dynatrace AWS DevOps Workshop: For more details please check out the full tutorial on https://github.com/Dynatrace/AWSDevOpsTutorial",
+    "Description": "Dynatrace AWS DevOps Workshop: For more details please check out the full tutorial on https://github.com/Dynatrace/AWSDevOpsTutorial. EDITED BY COLLIN MCPHERSON, CHECK https://github.com/mcpherson-dynatrace/AWSDevOps FOR DETAILS.",
     "Parameters": {
         "DynatraceTenantURL": {
             "Description": "Your full Dynatrace Tenant URL. For SaaS it is e.g: https://<YOURTENANTID>.live.dynatrace.com. For Managed something like https://yourserver/e/abcdefgh-1234-5678-abcd-55a7265f572f",
@@ -16,6 +16,11 @@
             "Description": "Full Download Script URL. Go to Deploy Dynatrace -> Start Installation -> Linux and copy JUST the URL in the wget command and PASTE it here",
             "Type": "String",
             "AllowedPattern" : "https:\/\/.*"
+        },
+        "DynatraceOneAgentDeployToken": {
+            "Description": "Your Dynatrace OneAgent deployment token. Can be found in the same area as the OneAgent URL, after the \"Authorization\" part.",
+            "Type": "String",
+            "MinLength" : "21"
         },
         "KeyName": {
             "Description": "Name of Existing EC2 Key Pair which we will use to launch new EC2 Instances",
@@ -559,7 +564,7 @@
                                 },
                                 "\" --header=\"Authorization: Api-Token ",
                                 {
-                                    "Ref": "DynatraceAPIToken"
+                                    "Ref": "DynatraceOneAgentDeployToken"
                                 },
                                 "\"\n",
                                 "sudo /bin/sh Dynatrace-OneAgent-Linux.sh APP_LOG_CONTENT_ACCESS=1\n",
@@ -648,7 +653,7 @@
                                 },
                                 "\" --header=\"Authorization: Api-Token ",
                                 {
-                                    "Ref": "DynatraceAPIToken"
+                                    "Ref": "DynatraceOneAgentDeployToken"
                                 },
                                 "\"\n",
                                 "sudo /bin/sh Dynatrace-OneAgent-Linux.sh APP_LOG_CONTENT_ACCESS=1\n",
@@ -733,7 +738,7 @@
                                 },
                                 "\" --header=\"Authorization: Api-Token ",
                                 {
-                                    "Ref": "DynatraceAPIToken"
+                                    "Ref": "DynatraceOneAgentDeployToken"
                                 },
                                 "\"\n",
                                 "sudo /bin/sh Dynatrace-OneAgent-Linux.sh APP_LOG_CONTENT_ACCESS=1\n",
