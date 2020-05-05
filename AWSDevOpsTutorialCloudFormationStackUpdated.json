@@ -557,6 +557,10 @@
                                 {
                                     "Ref": "DynatraceOneAgentURL"
                                 },
+                                "\" --header=\"Authorization: Api-Token ",
+                                {
+                                    "Ref": "DynatraceAPIToken"
+                                },
                                 "\"\n",
                                 "sudo /bin/sh Dynatrace-OneAgent-Linux.sh APP_LOG_CONTENT_ACCESS=1\n",
                                 "# Second: We install required components such as httpd, nodejs, pm2\n",
@@ -642,6 +646,10 @@
                                 {
                                     "Ref": "DynatraceOneAgentURL"
                                 },
+                                "\" --header=\"Authorization: Api-Token ",
+                                {
+                                    "Ref": "DynatraceAPIToken"
+                                },
                                 "\"\n",
                                 "sudo /bin/sh Dynatrace-OneAgent-Linux.sh APP_LOG_CONTENT_ACCESS=1\n",
                                 "# Second: we Install the AWS CodeDeploy Agent\n",
@@ -722,6 +730,10 @@
                                 "wget --no-check-certificate -O Dynatrace-OneAgent-Linux.sh \"",
                                 {
                                     "Ref": "DynatraceOneAgentURL"
+                                },
+                                "\" --header=\"Authorization: Api-Token ",
+                                {
+                                    "Ref": "DynatraceAPIToken"
                                 },
                                 "\"\n",
                                 "sudo /bin/sh Dynatrace-OneAgent-Linux.sh APP_LOG_CONTENT_ACCESS=1\n",
