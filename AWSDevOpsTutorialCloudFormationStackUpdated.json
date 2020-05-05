@@ -69,7 +69,7 @@
             "ParameterGroups": [
                 {
                 "Label": { "default": "Dynatrace"},
-                "Parameters": [ "DynatraceTenantURL", "DynatraceAPIToken","DynatraceOneAgentURL" ]
+                "Parameters": [ "DynatraceTenantURL", "DynatraceAPIToken","DynatraceOneAgentURL", "DynatraceOneAgentDeployToken" ]
                 },
                 {
                     "Label": {"default": "Deployment"},
